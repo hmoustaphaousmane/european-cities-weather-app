@@ -16,15 +16,18 @@
 
 <body>
 
-	<h1>7-Day Weather Forecast</h1>
-	<p>Powerd by <a href="http://www.7timer.info/doc.php?lang=en">7Timer !</a></p>
+	<h1>EurOrbit</h1>
+	<h2>7-Day Weather Forecast</h2>
+	<p>
+		Powerd by <a href="http://www.7timer.info/doc.php?lang=en" title="Tap to visit 7Timer!">7Timer!</a>
+	</p>
 
+	<div class="controls">
+		<select id="citySelect">
+			<option value="" disabled selected>Select a city</option>
+		</select>
+	</div>
 	<div class="container">
-		<div class="controls">
-			<select id="selectCity">
-				<option value="" disabled selected>Select a city</option>
-			</select>
-		</div>
 
 		<div class="forecast-container">
 			<div class="forecast-day">
@@ -99,3 +102,5 @@
 
 <!-- Our codes -->
 <script src="js/main.js"></script>
+
+</html>

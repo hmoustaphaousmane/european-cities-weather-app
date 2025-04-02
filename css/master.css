@@ -3,9 +3,39 @@ body {
     margin: 0 auto;
     text-align: center;
     width: fit-content;
-    font-family: Arial, sans-serif;
-    background-color: #d7d7d7;
-    color: black;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #003399;
+    color: white;
+}
+
+h1 {
+    font-size: 50px;
+    font-weight: 100;
+    color: #FFCC00;
+}
+
+h2 {
+    font-size: 25px;
+    font-weight: 100;
+}
+
+p {
+    color: rgba(255, 255, 255, 0.725);
+}
+
+a {
+    text-decoration: none;
+    border: 2px solid #FFCC00;
+    background-color: transparent;
+    border-radius: 10px;
+    padding: 4px;
+    text-align: center;
+    margin: 10px;
+    color: rgba(255, 255, 255, 0.725);
+}
+
+a:hover {
+    color: white;
 }
 
 .container {
