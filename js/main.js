@@ -64,9 +64,53 @@ const populateCitySelect = async () => {
 
     // Fetch weather data and display
     const weatherData = await fetchWeather(lat, lon);
-    console.log(weatherData)
+    displayForecast(weatherData);
+    // console.log(weatherData)
   });
 };
+
+const getIcon = (weatherCode) => `../images/${weatherCode}.png`;
+
+// Display the weather forecast based on the data of the selected city
+function displayForecast(data) {
+  // console.log(`Displaying forcast for ${data}`)
+  const weatherOutput = document.getElementById('weatherOutput');
+  // console.log(weatherOutput)
+
+  // Check if the data has a dataseries property
+  if (!data || !data.dataseries) {
+    weatherOutput.innerHTML = `<p>No forecast data available.</p>`;
+    return;
+  }
+
+  // Create a container for the 7-day forecast
+  let htmlContent = `<div class="forecast-container">`;
+  // console.log(htmlContent)
+
+  data.dataseries.forEach(day => {
+    // console.log(day)
+    const date = day.date;
+    const icon = getIcon(day.weather);
+    const weatherDescription = day.weather || 'N/A';
+    const tempMin = day.temp2m ? day.temp2m.min : 'N/A';
+    const tempMax = day.temp2m ? day.temp2m.max : 'N/A';
+
+    htmlContent += `
+      <div class="forecast-day">
+        <p>${date}</p>
+        <img src="${icon}" alt="${weatherDescription} icon" />
+        <p>${weatherDescription.toUpperCase()}</p>
+        <p>H: ${tempMax}°C</p>
+        <p>L: ${tempMin}°C</p>
+      </div>
+    `;
+  });
+
+  htmlContent += `</div>`;
+  // console.log(htmlContent)
+  weatherOutput.innerHTML = htmlContent;
+  console.log(weatherOutput)
+}
 
 // Call the populate function when the page loads
 document.addEventListener('DOMContentLoaded', populateCitySelect);
