@@ -45,7 +45,46 @@ const populateCitySelect = async () => {
   } catch (error) {
     console.error('Error loading the CSV file:', error);
   }
+
+  citySelect.addEventListener("change", async () => {
+    const selectedOption = citySelect.options[citySelect.selectedIndex];
+    const weatherOutput = document.getElementById('weatherOutput');
+
+    if (!selectedOption || !selectedOption.dataset.lat || !selectedOption.dataset.lon) {
+      weatherOutput.innerHTML = `<p class="error">Please select a city.</p>`;
+      return;
+    }
+
+    // Extract lat/lon
+    const lat = selectedOption.dataset.lat;
+    const lon = selectedOption.dataset.lon;
+
+    // Show loading message
+    weatherOutput.innerHTML = `<p>Loading weather data...</p>`;
+
+    // Fetch weather data and display
+    const weatherData = await fetchWeather(lat, lon);
+    console.log(weatherData)
+  });
 };
 
 // Call the populate function when the page loads
 document.addEventListener('DOMContentLoaded', populateCitySelect);
+
+// Fetch weather data using the selected city's coordinates
+const fetchWeather = async (lat, lon) => {
+  const url = `${BASE_URL}?lon=${lon}&lat=${lat}&product=civillight&output=json`;
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error('Network response failed');
+    }
+    const data = await response.json();
+    console.log(data)
+    return data;
+  } catch (error) {
+    console.error('Error fetching the weather data:', error);
+    document.getElementById('forecast-container').innerHTML =
+      `<p class="error">Error fetching data. Please try again later.</p>`;
+  }
+}
