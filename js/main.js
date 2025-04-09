@@ -69,7 +69,21 @@ const populateCitySelect = async () => {
   });
 };
 
+// Map the weather code from the API to the corresponding icon
 const getIcon = (weatherCode) => `../images/${weatherCode}.png`;
+
+// Format the date from yyyymmdd to a readable string (e.g., "Fri, Apr 11")
+const formatDate = (yyyymmdd) => {
+  const year = yyyymmdd.toString().slice(0, 4);
+  const month = yyyymmdd.toString().slice(4, 6);
+  const day = yyyymmdd.toString().slice(6, 8);
+
+  const dateObj = new Date(year, month - 1, day);
+
+  // Format options: "Fri, Apr 11"
+  const options = { weekday: 'short', month: 'short', day: 'numeric' };
+  return dateObj.toLocaleDateString('en-US', options);
+}
 
 // Display the weather forecast based on the data of the selected city
 function displayForecast(data) {
@@ -89,7 +103,7 @@ function displayForecast(data) {
 
   data.dataseries.forEach(day => {
     // console.log(day)
-    const date = day.date;
+    const date = formatDate(day.date);
     const icon = getIcon(day.weather);
     const weatherDescription = day.weather || 'N/A';
     const tempMin = day.temp2m ? day.temp2m.min : 'N/A';
