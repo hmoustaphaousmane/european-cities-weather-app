@@ -46,9 +46,18 @@ const populateCitySelect = async () => {
     console.error('Error loading the CSV file:', error);
   }
 
+  // citySelect.addEventListener("click", function () {
+  //   const options = citySelect.querySelectorAll("option");
+  //   const count = options.length;
+  //   if (typeof (count) === "undefined" || count < 2) {
+  //     populateCitySelect();
+  //   }
+  // });
+
   citySelect.addEventListener("change", async () => {
     const selectedOption = citySelect.options[citySelect.selectedIndex];
     const weatherOutput = document.getElementById('weatherOutput');
+    const spinner = document.getElementById('spinner');
 
     if (!selectedOption || !selectedOption.dataset.lat || !selectedOption.dataset.lon) {
       weatherOutput.innerHTML = `<p class="error">Please select a city.</p>`;
@@ -59,11 +68,19 @@ const populateCitySelect = async () => {
     const lat = selectedOption.dataset.lat;
     const lon = selectedOption.dataset.lon;
 
-    // Show loading message
-    weatherOutput.innerHTML = `<p>Loading weather data...</p>`;
+    // Show loading spinner
+    spinner.classList.remove('hidden');
 
-    // Fetch weather data and display
+    // Clear output
+    weatherOutput.innerHTML = '';
+
+    // Fetch weather data
     const weatherData = await fetchWeather(lat, lon);
+
+    // Hide spinner
+    spinner.classList.add('hidden');
+
+    // Display weather forecast
     displayForecast(weatherData);
     // console.log(weatherData)
   });
