@@ -1,120 +1,120 @@
 body {
-    padding: 20px;
-    margin: 0 auto;
-    text-align: center;
-    width: fit-content;
-    font-family: 'Courier New', Courier, monospace;
-    background-color: #003399;
-    color: white;
+  padding: 20px;
+  margin: 0 auto;
+  text-align: center;
+  width: fit-content;
+  font-family: 'Courier New', Courier, monospace;
+  background-color: #003399;
+  color: white;
 }
 
 h1 {
-    font-size: 50px;
-    font-weight: 100;
-    color: #FFCC00;
+  font-size: 50px;
+  font-weight: 100;
+  color: #FFCC00;
 }
 
 h2 {
-    font-size: 25px;
-    font-weight: 100;
+  font-size: 25px;
+  font-weight: 100;
 }
 
 p {
-    color: rgba(255, 255, 255, 0.725);
+  color: rgba(255, 255, 255, 0.725);
 }
 
 a {
-    text-decoration: none;
-    border: 2px solid #FFCC00;
-    background-color: transparent;
-    border-radius: 10px;
-    padding: 4px;
-    text-align: center;
-    margin: 10px;
-    color: rgba(255, 255, 255, 0.725);
+  text-decoration: none;
+  border: 2px solid #FFCC00;
+  background-color: transparent;
+  border-radius: 10px;
+  padding: 4px;
+  text-align: center;
+  margin: 10px;
+  color: rgba(255, 255, 255, 0.725);
 }
 
 a:hover {
-    color: white;
+  color: white;
 }
 
 #citySelect {
-    border-radius: 8px;
+  border-radius: 8px;
 }
 
 .container {
-    max-width: 1100px;
-    margin: 0 auto;
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
+  max-width: 1100px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
 }
 
 /* Dropdown and button row */
 .controls {
-    text-align: center;
-    margin-bottom: 20px;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 select,
 button {
-    padding: 10px;
-    margin: 0 10px;
-    font-size: 1em;
+  padding: 10px;
+  margin: 0 10px;
+  font-size: 1em;
 }
 
 /* Forecast container - flexible columns */
 .forecast-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
 }
 
 /* Each day's forecast card */
 .forecast-day {
-    background: linear-gradient(to bottom, #2f6fcd, #164b8e);
-    width: 120px;
-    border-radius: 8px;
-    padding: 10px;
-    margin: 0 4px;
-    color: #fff;
-    text-align: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    display: inline-block;
+  background: linear-gradient(to bottom, #2f6fcd, #164b8e);
+  width: 120px;
+  border-radius: 8px;
+  padding: 10px;
+  margin: 0 4px;
+  color: #fff;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  display: inline-block;
 }
 
 .forecast-day p {
-    margin: 5px 0;
+  margin: 5px 0;
 }
 
 .forecast-day img {
-    width: 100px;
-    height: 50px;
-    margin: 5px 0;
+  width: 100px;
+  height: 50px;
+  margin: 5px 0;
 }
 
 .spinner {
-    margin: 20px auto;
-    border: 6px solid #f3f3f3;
-    border-top: 6px solid #3498db;
-    border-radius: 50%;
-    width: 48px;
-    height: 48px;
-    animation: spin 1s linear infinite;
+  margin: 20px auto;
+  border: 6px solid #f3f3f3;
+  border-top: 6px solid #3498db;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  animation: spin 1s linear infinite;
 }
 
 .hidden {
-    display: none;
+  display: none;
 }
 
 @keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
+  0% {
+    transform: rotate(0deg);
+  }
 
-    100% {
-        transform: rotate(360deg);
-    }
+  100% {
+    transform: rotate(360deg);
+  }
 }

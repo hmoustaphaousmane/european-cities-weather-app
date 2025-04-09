@@ -26,7 +26,7 @@ const populateCitySelect = async () => {
     const text = await response.text();
     const cities = parseCSV(text);
 
-    console.log(cities);
+    // console.log(cities);
 
     cities.forEach(cityObject => {
       if (!cityObject.city || !cityObject.country) return; // Skip invalid rows
@@ -40,8 +40,7 @@ const populateCitySelect = async () => {
       citySelect.appendChild(option);
     });
 
-    console.log(citySelect);
-
+    // console.log(citySelect);
   } catch (error) {
     console.error('Error loading the CSV file:', error);
   }
@@ -140,7 +139,7 @@ function displayForecast(data) {
   htmlContent += `</div>`;
   // console.log(htmlContent)
   weatherOutput.innerHTML = htmlContent;
-  console.log(weatherOutput)
+  // console.log(weatherOutput)
 }
 
 // Call the populate function when the page loads
@@ -155,7 +154,7 @@ const fetchWeather = async (lat, lon) => {
       throw new Error('Network response failed');
     }
     const data = await response.json();
-    console.log(data)
+    // console.log(data)
     return data;
   } catch (error) {
     console.error('Error fetching the weather data:', error);
